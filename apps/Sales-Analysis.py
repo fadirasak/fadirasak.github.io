@@ -95,7 +95,9 @@ def _():
     import plotly.graph_objects as go
 
     import numpy as np
-    return db, dt, go, mo, msno, np, pl, plt, px
+
+    import pandas as pd
+    return db, dt, go, mo, msno, np, pl, plt, px, pd
 
 
 @app.cell(hide_code=True)
@@ -108,7 +110,7 @@ def _(pl):
 
     # Loading orders csv
 
-    orders = pl.read_parquet(
+    orders = pd.read_parquet(
         r"public/orders2.parquet"
     )
     return lineItems, orders
