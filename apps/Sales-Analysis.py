@@ -96,8 +96,10 @@ def _():
 
     import numpy as np
 
-    import pandas as pd
-    return db, dt, go, mo, msno, np, pl, plt, px, pd
+    import pandas as pd,
+
+    import pyarrow as pa
+    return db, dt, go, mo, msno, np, pl, plt, px, pd, pa
 
 
 @app.cell(hide_code=True)
