@@ -44,7 +44,7 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.image(r'/Users/fadirasak/Desktop/Data science/projects/CBA_Interview_Project/Project files/Picture.jpg').center()
+    mo.image(r'public/Picture.jpg').center()
     return
 
 
