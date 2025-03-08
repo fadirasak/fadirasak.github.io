@@ -119,7 +119,7 @@ def _(pd, pl):
     # Loading orders csv
 
     order = pd.read_parquet(
-        r"public/orders2.parquet",
+        r"https://raw.githubusercontent.com/fadirasak/fadirasak.github.io/refs/heads/main/apps/public/orders2.parquet",
     )
     return lineItems, order
 
