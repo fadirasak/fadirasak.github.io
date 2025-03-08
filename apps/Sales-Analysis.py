@@ -111,7 +111,7 @@ def _(pd, pl):
     # Loading line_items csv
 
     lineItems = pl.read_csv(
-        "DATA/Analysis data files (Python)/line_items.csv", try_parse_dates=True
+        "https://raw.githubusercontent.com/fadirasak/fadirasak.github.io/refs/heads/main/apps/public/line_items.csv", try_parse_dates=True
     )
 
     # Loading orders csv
