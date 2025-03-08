@@ -109,7 +109,7 @@ def _(pl):
     # Loading orders csv
 
     orders = pl.read_parquet(
-        r"public/orders.parquet"
+        r"public/orders2.parquet"
     )
     return lineItems, orders
 
