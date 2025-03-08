@@ -44,7 +44,7 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.image(r'/Users/fadirasak/Desktop/Data science/projects/CBA_Interview_Project/Project files/Picture.jpg').center()
+    mo.image(r'public/Picture.jpg').center()
     return
 
 
@@ -113,13 +113,13 @@ def _(pd, pl):
     # Loading line_items csv
 
     lineItems = pl.read_csv(
-        "DATA/Analysis data files (Python)/line_items.csv", try_parse_dates=True
+        "https://raw.githubusercontent.com/fadirasak/fadirasak.github.io/refs/heads/main/apps/public/line_items.csv", try_parse_dates=True
     )
 
     # Loading orders csv
 
     order = pd.read_parquet(
-        "orders.parquet",
+        "public/orders2.parquet",
     )
     return lineItems, order
 
