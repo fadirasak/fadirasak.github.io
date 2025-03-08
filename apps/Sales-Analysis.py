@@ -23,12 +23,6 @@ def _(mo):
     >1. Find the characteristics of the most successful merchants<br>
     >2. What are the top 2 shipping carriers? Why should or shouldn't we try to use those two for all orders? 
     >3. Choose the top two print providers to give discount and end contract with the worst two. Explain with reason.
-
-    ### *SQL Exercises*
-    >1. Total sales, orders, and count of merchants by month.
-    >2. Total sales, product count, and order count by merchant ordered by order count limited to merchants with orders > 5.
-    >3. Write a query returning all ORDER_IDs with the time the merchant has been active at the time of the order, the rank of the merchant by order count for the previous month, and the merchant's primary sales channel for the previous month;
-    >4. Write a statement to create a table containing print providers with average production time, reprint percent, last order timestamp, and primary shipping carrier;
     ///
 
     """
