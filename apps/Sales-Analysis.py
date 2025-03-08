@@ -103,13 +103,13 @@ def _(pl):
     # Loading line_items csv
 
     lineItems = pl.read_csv(
-        "DATA/Analysis data files (Python)/line_items.csv", try_parse_dates=True
+        "public/line_items.csv", try_parse_dates=True
     )
 
     # Loading orders csv
 
-    orders = pl.read_csv(
-        "DATA/Analysis data files (Python)/orders.csv", try_parse_dates=True
+    orders = pl.read_parquet(
+        "public/orders.parquet"
     )
     return lineItems, orders
 
