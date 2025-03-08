@@ -103,7 +103,7 @@ def _(pl):
     # Loading line_items csv
 
     lineItems = pl.read_csv(
-        r"public/line_items.csv", try_parse_dates=True
+        r"https://raw.githubusercontent.com/fadirasak/fadirasak.github.io/refs/heads/main/apps/public/line_items.csv", try_parse_dates=True
     )
 
     # Loading orders csv
