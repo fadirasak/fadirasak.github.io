@@ -16,7 +16,7 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.image(r'fibo.png').center()
+    mo.image(r'https://raw.githubusercontent.com/fadirasak/fadirasak.github.io/refs/heads/main/apps/Fibonacci/fibo.png').center()
     return
 
 
