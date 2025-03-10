@@ -16,7 +16,7 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.image(r"""/Users/fadirasak/Desktop/Data science/projects/Fibonacci/Screen-Shot-2021-05-26-at-6.04.09-PM-1024x661.png""").center()
+    mo.image(r"""Screen-Shot-2021-05-26-at-6.04.09-PM-1024x661.png""").center()
     return
 
 
