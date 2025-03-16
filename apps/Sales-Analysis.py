@@ -124,24 +124,6 @@ def _(order, pl):
 
 
 @app.cell(hide_code=True)
-def _(lineItems, msno, orders, pl, plt):
-    # visualizing the missing data
-
-    fig, axs = plt.subplots(1, 2, figsize=(12, 6))
-    msno.matrix(lineItems.to_pandas(), ax=axs[0],sparkline=False,fontsize=7)
-    axs[0].set_title('Missing Values Matrix - lineItems')
-    msno.matrix(orders.to_pandas(), ax=axs[1],sparkline=False,fontsize=7)
-    axs[1].set_title('Missing Values Matrix - orders')
-    plt.tight_layout()
-    plt.show()
-
-    print(f'''number of null values in lineItems: {lineItems.select(pl.all().is_null().sum())}
-
-    number of null values in orders: {orders.select(pl.all().is_null().sum())}''')
-    return axs, fig
-
-
-@app.cell(hide_code=True)
 def _(orders, pl):
     orders_1 = orders.filter(pl.col("TOTAL_COST") != 0)
     return (orders_1,)
