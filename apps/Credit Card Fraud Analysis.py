@@ -87,7 +87,7 @@ def _(np, pd, pl):
         transaction_ids = np.arange(1, n + 1)
         amounts = np.round(np.random.exponential(scale=50, size=n), 2)
 
-        # Increase fraud cases to 20%
+        # 20% fraud cases
         fraud_labels = np.random.choice(
             [0, 1], size=n, p=[1 - fraud_ratio, fraud_ratio]
         )
@@ -101,7 +101,7 @@ def _(np, pd, pl):
         timestamps = pd.date_range(start="2024-01-01", periods=n, freq="T").astype(
             str
         )
-        # Convert timestamps to datetime before extracting the hour
+        
         timestamps = pd.to_datetime(timestamps)
         hours_of_day = timestamps.hour
 
@@ -418,7 +418,7 @@ def _(SMOTE, X, y):
 
 @app.cell
 def _(StandardScaler, X_resampled, mo, train_test_split, y_resampled):
-    # Split the data into training and testing sets
+   
     X_train, X_test, y_train, y_test = train_test_split(
         X_resampled, y_resampled, test_size=0.2, random_state=42
     )
@@ -445,7 +445,7 @@ def _(
         n_estimators=200,
         max_depth=20,
         min_samples_split=5,
-        class_weight={0: 1, 1: 4},  # Bumped up fraud weight
+        class_weight={0: 1, 1: 4},  
         random_state=42,
     )
 
@@ -454,7 +454,7 @@ def _(
         n_estimators=200, learning_rate=0.1, max_depth=5, random_state=42
     )
 
-    # Create ensemble model
+    # creating ensemble model
     ensemble = VotingClassifier(estimators=[("rf", rf), ("gb", gb)], voting="soft")
     ensemble.fit(X_train, y_train)
 
@@ -480,24 +480,24 @@ def _(dropdown):
 
 @app.cell
 def _(X_test, ensemble, f1_score, minimize_scalar, mo, y_test):
-    # Get prediction probabilities
+    # prdiction probs
     y_probs = ensemble.predict_proba(X_test)[:, 1]
 
 
-    # Define the function to optimize threshold dynamically
+    # dynamic threshold udf
     def optimize_threshold(threshold):
         y_pred = (y_probs > threshold).astype(int)
         return -f1_score(
             y_test, y_pred, average="macro"
-        )  # Optimize for balanced F1-score
+        )  
 
 
-    # Optimize threshold dynamically
+    # dynamic optimizaiton
     best_threshold = minimize_scalar(
         optimize_threshold, bounds=(0.2, 0.6), method="bounded"
     ).x
 
-    # Lower the threshold slightly to improve fraud recall
+    # lowering threshold to improve recall
     if best_threshold > 0.3:
         best_threshold -= 0.1
     print(f"Adjusted Threshold: {best_threshold:.3f}")
@@ -520,7 +520,7 @@ def _(mo):
 
 @app.cell
 def _(best_threshold, classification_report, y_probs, y_test):
-    # Evaluate model at best threshold
+    
     y_pred_optimal = (y_probs > best_threshold).astype(int)
     print(classification_report(y_test, y_pred_optimal))
     return (y_pred_optimal,)
@@ -563,7 +563,7 @@ def _(confusion_matrix, pd, y_pred_optimal, y_test):
 
 @app.cell
 def _(conf_matrix, mo, px):
-    # Plot confusion matrix
+    #  confusion matrix
 
     fig = px.imshow(
         conf_matrix,
@@ -594,7 +594,7 @@ def _(conf_matrix, px):
 
 @app.cell
 def _(mo, plt, precision_recall_curve, y_probs, y_test):
-    # Plot Precision-Recall Curve
+    #  Precision-Recall Curve
     precision, recall, _ = precision_recall_curve(y_test, y_probs)
     plt.figure(figsize=(8, 6))
     plt.plot(recall, precision, marker=".", label="Random Forest")
