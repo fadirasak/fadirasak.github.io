@@ -128,7 +128,7 @@ def _(mo):
         ## **Step 1: Generate Synthetic Data**
         We create a synthetic dataset of 5000 credit card transactions where:
 
-        - audratio=0.2fraud_ratio=0.2 ensures 20% fraud
+        - fraud_ratio=0.2 ensures 20% fraud
         - Each transaction gets:
         - a unique TransactionID
         - an Amount (from an exponential distribution)
