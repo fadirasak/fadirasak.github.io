@@ -130,12 +130,12 @@ def _(mo):
 
         - audratio=0.2fraud_ratio=0.2 ensures 20% fraud
         - Each transaction gets:
-        - a unique TransactionIDTransactionID
-        - an AmountAmount (from an exponential distribution)
-        - a TransactionTypeTransactionType (Online/POS/ATM)
-        - a LocationLocation (USA, UK, India, UAE, Germany)
-        - a TimestampTimestamp (one-minute increments)
-        - HourOfDayHourOfDay (extracted from timestamp for time-based fraud insights)
+        - a unique TransactionID
+        - an Amount (from an exponential distribution)
+        - a TransactionType (Online/POS/ATM)
+        - a Location (USA, UK, India, UAE, Germany)
+        - a Timestamp(one-minute increments)
+        - HourOfDay (extracted from timestamp for time-based fraud insights)
         """
     )
     return
@@ -205,8 +205,8 @@ def _(mo):
         ## **Step 2: Data Preprocessing & Feature Engineering**
         - Encode categorical columns with LabelEncoderLabelEncoder.
         - Create engineered features:
-        - AmountperTypeAmount_per_Type = Amount / (TransactionTypeCode+1)
-        - AmountperLocationAmount_per_Location = Amount / (LocationCode+1)
+        - AmountperType = Amount / (TransactionTypeCode+1)
+        - AmountperLocation = Amount / (LocationCode+1)
         - Drop original categorical columns.
         """
     )
